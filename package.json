@@ -1,0 +1,13 @@
+{
+  "name": "support-ticket",
+  "version": "1.0.0",
+  "description": "API de gerenciamento de suporte",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
