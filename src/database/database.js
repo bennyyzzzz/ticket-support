@@ -44,4 +44,30 @@ export class Database {
         
         return data
     }
+
+    update(table, id, data){
+        const rowIndex = this.#database[table]?.findIndex((row) => row.id === id) ?? -1
+
+        if(rowIndex > -1){
+            this.#database[table][rowIndex] = {
+                ...this.#database[table][rowIndex],
+                ...data,
+            }
+
+            this.#persist()
+        }
+
+        return rowIndex > -1
+    }
+
+    delete(table, id){
+        const rowIndex = this.#database[table]?.findIndex((row) => row.id === id) ?? -1
+
+        if(rowIndex > -1){
+            this.#database[table].splice(rowIndex, 1)
+            this.#persist()
+        }
+
+        return rowIndex > -1
+    }
 }
